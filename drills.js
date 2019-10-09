@@ -98,6 +98,7 @@ const inOrder = tree => {
 
 //25 15 50 10 24 35 70 4 12 18 31 44 66 90 22
 
+//6. Find the next commanding officer
 const officers = new BinarySearchTree();
 officers.insert({ key: 10, value: 'Captain Picard' });
 officers.insert({ key: 8, value: 'Commander Riker' });
@@ -122,5 +123,32 @@ function nextOfficer(tree) {
     nextOfficer(queue.dequeue());
   }
 }
-nextOfficer(officers);
+// nextOfficer(officers);
 //console.log(officers);
+
+//7. Max Profit
+const sharePrices = [128, 97, 121, 123, 98, 97, 105]
+//finding the max value for i - (i-1)
+const maxDifference = (arr) => {
+  let max = 0
+  let day = 1
+  for (let i=1; i<arr.length; i++) {
+    let difference = arr[i]-arr[i-1]
+    if (difference > max) {
+      max=difference
+      day = i+1
+    }
+  }
+  console.log(`You could make $${max} by buying on day ${day-1} and selling on day ${day}`)
+}
+maxDifference(sharePrices)
+
+//insert into tree {key: difference, value: day}
+//insert {key: -31, value: 2}
+//insert {key:24, value: 3}
+//in-order: -31, -25, ... 3
+//way more work than necessary
+
+//8. Egg drop
+
+//1, 2, 3, 4<-, 5x
